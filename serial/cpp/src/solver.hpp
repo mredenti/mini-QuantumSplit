@@ -12,16 +12,9 @@ private:
     Potential &potential_;
 
 public:
-    Solver(Grid &g, Potential &p) : grid_(g), potential_(p) {}
+    Solver(Grid &grid, Potential &potential);
 
-    void step()
-    {
-        // Example: Apply boundary conditions
-        // BoundaryConditions::applyPeriodic(grid.data); // this could be cool to try...
-
-        // Apply potential, transform, apply kinetic, transform back, etc.
-        // Placeholder for actual numerical computation logic
-    }
+    void step();
 };
 
 #endif // SOLVER_H

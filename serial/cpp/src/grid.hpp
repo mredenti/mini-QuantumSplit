@@ -1,35 +1,27 @@
 #ifndef GRID_H
 #define GRID_H
 
-#include <vector>
-#include <complex>
-#include <iostream>
+#include <vector> // std::vector
+#include <complex> // std::complex
 
 class Grid
 {
 private:
-    std::vector<std::complex<double>> data_;
+    std::vector<double> data_;  // Store only real parts
     int size_;
     double dx_;
+    double leftLimit_;
+    double rightLimit_;
 
 public:
-    Grid(int gridSize_, double spatialResolution)
-        : size_(gridSize_), dx_(spatialResolution), data_(gridSize_) {}
+    Grid(double leftLimit, double rightLimit, int numPoints);
 
-    std::complex<double> &operator[](int i) { return data_[i]; }
-    const std::complex<double> &operator[](int i) const { return data_[i]; }
+    double& operator[](int i);
+    const double& operator[](int i) const;
 
-    int getSize() const { return size_; }
-    double getDx() const { return dx_; }
-
-    void print() const
-    {
-        for (int i = 0; i < size_; ++i)
-        {
-            std::cout << "x[" << i << "] = " << i * dx_ - (size_ * dx_ / 2.0)
-                      << ", Psi = " << data_[i] << std::endl;
-        }
-    }
+    int getSize() const;
+    double getDx() const;
+    void print() const;
 };
 
 #endif // GRID_H

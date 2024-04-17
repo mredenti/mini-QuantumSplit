@@ -1,2 +1,9 @@
-add_executable(main main.cpp)
-target_link_libraries(main PRIVATE PkgConfig::FFTW3)
+add_executable(
+    schrodinger 
+    main.cpp
+    grid.cpp
+    potential.cpp 
+    wavepacket.cpp
+    solver.cpp
+    )
+target_link_libraries(schrodinger PRIVATE PkgConfig::FFTW3)
